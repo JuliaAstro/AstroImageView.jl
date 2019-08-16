@@ -23,6 +23,6 @@ addons:
 script:
     - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
     - julia -e 'using Pkg; Pkg.build()'
-    - xvfb-run julia -e 'using Pkg; Pkg.test(coverage=true)'
+    - if [[ `uname` = "Linux" ]]; then TESTCMD="xvfb-run julia"; else TESTCMD="julia"; fi
 after_success:
   - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Coveralls.submit(process_folder())'
