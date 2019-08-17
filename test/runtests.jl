@@ -1,5 +1,8 @@
 using AstroImageView
 using AstroImageView: get_label, get_button, format_header, header_window
+using AstroImages, GtkReactive, Gtk.ShortNames, Graphics, Gtk, Colors, IntervalSets, Cairo
+using AstroImages: render
+using WCS, FITSIO
 using Test
 
 @testset "labels" begin
