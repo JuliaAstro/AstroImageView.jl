@@ -6,6 +6,9 @@ function format_header(header::String)
     end
     return tmp
 end
+function format_label(label::Tuple{Tuple{Real,Real},String})
+    return ". (" * string.(label[1][1]) * "," * string.(label[1][2]) * ")\t" * label[2]  
+end
 
 function form_image(img::AstroImage, indx::Integer)
     rimg = render(img,indx)
@@ -32,6 +35,18 @@ function header_window(header::WCSTransform)
     txt = get_label("Header")
     push!(new_win,txt)
     set_gtk_property!(txt, :label, format_header(header))
+    return new_win  
+end
+
+function label_window(img_labels::Array{<:Tuple{Tuple{Real,Real},String},1}) 
+    new_win = Window("Labels",600,500)
+    text = ""
+    for (idx, i) in enumerate(img_labels)
+        text *= string.(idx) * format_label(i) * "\n"
+    end
+    txt = get_label("Label")
+    push!(new_win,txt)
+    set_gtk_property!(txt, :label, text)
     return new_win  
 end
 
