@@ -28,6 +28,7 @@ function ui_basic(img::AstroImage, indx::Int = 1)
     signal_connect(headerbtn, :clicked) do widget
         showall(header_window(header))
     end
+    init_zoom_scroll(c,zr)
     close_window(closebtn, win)
     map_mouse_motion(img, indx, c, g, header)
     draw_canvas(c,zr,surf)
