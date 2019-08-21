@@ -4,9 +4,10 @@ using AstroImages, GtkReactive, Gtk.ShortNames, Graphics, Gtk, Colors, IntervalS
 using AstroImages: render
 using WCS, FITSIO
 
-export ui_basic
+export ui_basic, ui_advanced
 
 include("utils.jl")
 include("basic.jl")
+include("advanced.jl")
 
 end # module
