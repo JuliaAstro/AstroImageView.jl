@@ -1,5 +1,10 @@
 const eidx = 30
 
+```
+    ui_advanced(img::AstroImage, indx::Int = 1)
+
+Opens an advanced GUI panel to visualize AstroImages.
+```
 function ui_advanced(img::AstroImage, indx::Int = 1)              # 3 X eidx grid
     win = Window("Image", 700,700, border_width = 5) 
     g = Grid()

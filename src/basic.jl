@@ -1,3 +1,8 @@
+```
+    ui_basic(img::AstroImage, indx::Int = 1)
+
+Opens a basic GUI panel to visualize AstroImages.
+```
 function ui_basic(img::AstroImage, indx::Int = 1)
     header = img.wcs[indx]
     win = Window("Image", 700,700) 
